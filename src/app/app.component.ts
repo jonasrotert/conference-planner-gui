@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NgbConfig} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'conference-planner-gui';
+
+  constructor(ngbConfig: NgbConfig) {
+    ngbConfig.animation = true;
+  }
+
 }
