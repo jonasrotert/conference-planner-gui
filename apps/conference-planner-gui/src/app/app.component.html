@@ -1,35 +1,53 @@
-<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-  <ngb-panel title="Simple">
-    <ng-template ngbPanelContent>
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-      officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-      moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
-      keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-      vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-      heard of them accusamus labore sustainable VHS.
-    </ng-template>
-  </ngb-panel>
-  <ngb-panel>
-    <ng-template ngbPanelTitle>
-      <span>&#9733; <b>Fancy</b> title &#9733;</span>
-    </ng-template>
-    <ng-template ngbPanelContent>
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-      officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-      moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
-      keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-      vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-      heard of them accusamus labore sustainable VHS.
-    </ng-template>
-  </ngb-panel>
-  <ngb-panel title="Disabled" [disabled]="true">
-    <ng-template ngbPanelContent>
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-      officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-      moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
-      keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-      vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-      heard of them accusamus labore sustainable VHS.
-    </ng-template>
-  </ngb-panel>
-</ngb-accordion>
+<div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+  <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+    <svg class="bi pe-none me-2" width="30" height="24">
+      <use xlink:href="#bootstrap"></use>
+    </svg>
+    <span class="fs-5 fw-semibold">Conference Planner</span>
+  </a>
+  <ul class="list-unstyled ps-0">
+    <li class="mb-1">
+      <button (click)="collapseHome.toggle()" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#collapseHome" [attr.aria-expanded]="!isHomeCollapsed" [ngClass]="{collapsed: isHomeCollapsed}">
+        Home
+      </button>
+      <div #collapseHome="ngbCollapse" [(ngbCollapse)]="isHomeCollapsed" id="collapseHome">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Overview</a></li>
+          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Updates</a></li>
+          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Reports</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="mb-1">
+      <button (click)="collapseConferences.toggle()" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#collapseConferences" [attr.aria-expanded]="!isConferencesCollapsed" [ngClass]="{collapsed: isConferencesCollapsed}">
+        Conferences
+      </button>
+      <div #collapseConferences="ngbCollapse" [(ngbCollapse)]="isConferencesCollapsed" id="collapseConferences">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Overview</a></li>
+          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Bookings</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="border-top my-3"></li>
+
+    <li class="mb-1">
+      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+              data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+        Account
+      </button>
+      <div class="collapse" id="account-collapse" style="">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
+          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
+          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Settings</a></li>
+          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Sign out</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="divider">Hallo</div>

@@ -7,7 +7,11 @@ import {NgbConfig} from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'conference-planner-gui';
+
+  isHomeCollapsed = false;
+  isConferencesCollapsed = false;
 
   constructor(ngbConfig: NgbConfig) {
     ngbConfig.animation = true;
