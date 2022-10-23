@@ -1,0 +1,93 @@
+{
+  "projectType": "application",
+  "generators": {},
+  "sourceRoot": "apps/conference-planner-gui/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/conference-planner-gui",
+        "index": "apps/conference-planner-gui/src/index.html",
+        "main": "apps/conference-planner-gui/src/main.ts",
+        "polyfills": "apps/conference-planner-gui/src/polyfills.ts",
+        "tsConfig": "apps/conference-planner-gui/tsconfig.app.json",
+        "assets": [
+          "apps/conference-planner-gui/src/favicon.ico",
+          "apps/conference-planner-gui/src/assets"
+        ],
+        "styles": [
+          "apps/conference-planner-gui/src/styles.scss"
+        ],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/conference-planner-gui/src/environments/environment.ts",
+              "with": "apps/conference-planner-gui/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "conference-planner-gui:build:production"
+        },
+        "development": {
+          "browserTarget": "conference-planner-gui:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "conference-planner-gui:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "apps/conference-planner-gui/src/test.ts",
+        "polyfills": "apps/conference-planner-gui/src/polyfills.ts",
+        "tsConfig": "apps/conference-planner-gui/tsconfig.spec.json",
+        "karmaConfig": "apps/conference-planner-gui/karma.conf.js",
+        "assets": [
+          "apps/conference-planner-gui/src/favicon.ico",
+          "apps/conference-planner-gui/src/assets"
+        ],
+        "styles": [
+          "apps/conference-planner-gui/src/styles.scss"
+        ],
+        "scripts": []
+      }
+    }
+  }
+}
