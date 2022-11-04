@@ -1,0 +1,27 @@
+//$enable-grid-classes: false;
+//$enable-cssgrid: true;
+
+@import '~bootstrap/scss/bootstrap';
+//@import '~bootstrap/scss/bootstrap-grid';
+
+:host {
+  @extend .navbar;
+  @extend .navbar-dark;
+  @extend .sticky-top;
+  @extend .bg-dark;
+  @extend .flex-md-nowrap;
+  @extend .p-0;
+  @extend .shadow;
+}
+
+.form-control-dark {
+  padding: 0.75rem 1rem;
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+
+  &:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 3px rgb(255 255 255 / 25%);
+  }
+}

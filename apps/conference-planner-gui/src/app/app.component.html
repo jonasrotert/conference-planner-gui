@@ -1,53 +1,75 @@
-<div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
-  <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-    <svg class="bi pe-none me-2" width="30" height="24">
-      <use xlink:href="#bootstrap"></use>
-    </svg>
-    <span class="fs-5 fw-semibold">Conference Planner</span>
-  </a>
-  <ul class="list-unstyled ps-0">
-    <li class="mb-1">
-      <button (click)="collapseHome.toggle()" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#collapseHome" [attr.aria-expanded]="!isHomeCollapsed" [ngClass]="{collapsed: isHomeCollapsed}">
-        Home
-      </button>
-      <div #collapseHome="ngbCollapse" [(ngbCollapse)]="isHomeCollapsed" id="collapseHome">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Overview</a></li>
-          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Updates</a></li>
-          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Reports</a></li>
-        </ul>
+<app-header></app-header>
+
+<main id="main" class="p-3">
+
+  <div class="row">
+    <div id="bar">
+
+      <ul class="list-unstyled ps-0">
+        <li class="mb-1">
+          <button (click)="collapseHome.toggle()" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#collapseHome" [attr.aria-expanded]="!isHomeCollapsed" [ngClass]="{collapsed: isHomeCollapsed}">
+            Home
+          </button>
+          <div #collapseHome="ngbCollapse" [(ngbCollapse)]="isHomeCollapsed" id="collapseHome">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Overview</a></li>
+              <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Updates</a></li>
+              <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Reports</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="mb-1">
+          <button (click)="collapseConferences.toggle()" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#collapseConferences" [attr.aria-expanded]="!isConferencesCollapsed" [ngClass]="{collapsed: isConferencesCollapsed}">
+            Conferences
+          </button>
+          <div #collapseConferences="ngbCollapse" [(ngbCollapse)]="isConferencesCollapsed" id="collapseConferences">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Overview</a></li>
+              <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Bookings</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="border-top my-3"></li>
+
+        <li class="mb-1">
+          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+            Account
+          </button>
+          <div class="collapse" id="account-collapse" style="">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
+              <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
+              <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Settings</a></li>
+              <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Sign out</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+    <div id="content">
+
+      <h1>Oveview</h1>
+
+      <p class="lead">There are some upcoming conferences. Let's have a look.</p>
+      <div class="grid mt-5">
+        <div class="g-col-6 g-col-md-4">
+          <div class="card" *ngFor="let conference of conferences | async">
+            <div class="card-body">
+              <div class="h5 card-title">{{conference.title}}</div>
+              <p class="card-text">{{conference.description}}</p>
+              <a href="/conference/detail" class="btn btn-primary">Show more details</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </li>
 
-    <li class="mb-1">
-      <button (click)="collapseConferences.toggle()" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#collapseConferences" [attr.aria-expanded]="!isConferencesCollapsed" [ngClass]="{collapsed: isConferencesCollapsed}">
-        Conferences
-      </button>
-      <div #collapseConferences="ngbCollapse" [(ngbCollapse)]="isConferencesCollapsed" id="collapseConferences">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Overview</a></li>
-          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Bookings</a></li>
-        </ul>
-      </div>
-    </li>
 
-    <li class="border-top my-3"></li>
+    </div>
+  </div>
 
-    <li class="mb-1">
-      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-              data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-        Account
-      </button>
-      <div class="collapse" id="account-collapse" style="">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
-          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
-          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Settings</a></li>
-          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Sign out</a></li>
-        </ul>
-      </div>
-    </li>
-  </ul>
-</div>
-
-<div class="divider">Hallo</div>
+</main>

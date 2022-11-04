@@ -1,20 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
- @import '~bootstrap/scss/bootstrap.scss';
+
+//$enable-grid-classes: false;
+//$enable-cssgrid: true;
+
+@import '~bootstrap/scss/bootstrap';
+//@import '~bootstrap/scss/bootstrap-grid';
+
 
 body {
   min-height: 100vh;
-  min-height: -webkit-fill-available;
 }
 
 html {
   height: 100vh;
 }
 
-.main {
-  height: 100vh;
-  max-height: 100vh;
-  overflow-x: auto;
-  overflow-y: hidden;
+
+app-root {
+
+  #main {
+    @extend .container-fluid;
+
+    #bar {
+      @extend .col-md-3;
+      @extend .col-lg-2 ;
+      @extend .d-md-block ;
+      @extend .bg-light ;
+      @extend .collapse;
+      @extend .p-3;
+      
+      position: fixed;
+      top: 48px;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+      box-shadow: inset -1px 0 0 rgb(0 0 0 / 10%);
+    }
+
+    #content {
+      @extend .p-3;
+      @extend .col-md-9;
+      @extend .ms-sm-auto;
+      @extend .col-lg-10;
+      @extend .px-md-4;
+    }
+  }
 }
 
 .dropdown-toggle {
@@ -65,9 +95,3 @@ html {
   overflow-y: auto;
 }
 
-.divider {
-  background-color: rgba(0, 0, 0, .1);
-  border: solid rgba(0, 0, 0, .15);
-  border-width: 1px 0;
-  box-shadow: inset 0 0.5em 1.5em rgb(0 0 0 / 10%), inset 0 0.125em 0.5em rgb(0 0 0 / 15%);
-}
