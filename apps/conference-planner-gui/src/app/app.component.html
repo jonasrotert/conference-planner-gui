@@ -12,9 +12,9 @@
           </button>
           <div #collapseHome="ngbCollapse" [(ngbCollapse)]="isHomeCollapsed" id="collapseHome">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Overview</a></li>
-              <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Updates</a></li>
-              <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Reports</a></li>
+              <li><a routerLink="/overview" routerLinkActive="active" ariaCurrentWhenActive="page" class="link-dark d-inline-flex text-decoration-none rounded">Overview</a></li>
+              <li><a routerLink="/updates" routerLinkActive="active" ariaCurrentWhenActive="page" href="#" class="link-dark d-inline-flex text-decoration-none rounded">Updates</a></li>
+              <li><a routerLink="/reports" routerLinkActive="active" ariaCurrentWhenActive="page" href="#" class="link-dark d-inline-flex text-decoration-none rounded">Reports</a></li>
             </ul>
           </div>
         </li>
@@ -30,43 +30,13 @@
             </ul>
           </div>
         </li>
-
-        <li class="border-top my-3"></li>
-
-        <li class="mb-1">
-          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-            Account
-          </button>
-          <div class="collapse" id="account-collapse" style="">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
-              <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
-              <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Settings</a></li>
-              <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Sign out</a></li>
-            </ul>
-          </div>
-        </li>
       </ul>
     </div>
 
 
     <div id="content">
 
-      <h1>Oveview</h1>
-
-      <p class="lead">There are some upcoming conferences. Let's have a look.</p>
-      <div class="grid mt-5">
-        <div class="g-col-6 g-col-md-4">
-          <div class="card" *ngFor="let conference of conferences | async">
-            <div class="card-body">
-              <div class="h5 card-title">{{conference.title}}</div>
-              <p class="card-text">{{conference.description}}</p>
-              <a href="/conference/detail" class="btn btn-primary">Show more details</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <router-outlet></router-outlet>
 
 
     </div>

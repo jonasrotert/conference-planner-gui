@@ -1,4 +1,5 @@
 export interface Conference {
+  id: String;
   title: String;
   intro: String;
   description: String;

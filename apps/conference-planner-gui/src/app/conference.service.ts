@@ -15,6 +15,10 @@ export class ConferenceService {
     return this.http.get<Conference[]>('http://localhost:8080/api/conferences');
   }
 
+  loadById(id:String) {
+    return this.http.get<Conference>('http://localhost:8080/api/conferences/' + id);
+  }
+
   addToList(item: Conference) {
     this.items.push(item);
   }
